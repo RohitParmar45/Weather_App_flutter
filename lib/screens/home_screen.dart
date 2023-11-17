@@ -69,6 +69,9 @@ class _HomeScreenState extends State<HomeScreen> {
             BlocBuilder<WeatherBlocBloc, WeatherBlocState>(
               builder: (context, state) {
                 if (state is WeatherBlocSuccess) {
+                  // print("Temp Min: ${state.weather.tempMin!.celsius!.round()}");
+                  // print("Temp Max: ${state.weather}");
+
                   return SizedBox(
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height,
@@ -77,16 +80,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              '${state.weather.areaName}',
-                              style: const TextStyle(
+                            const Text(
+                              ' Hello ',
+                              style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w300,
                                   fontSize: 18),
                             ),
-                            const Text(
-                              '   Good Morning',
-                              style: TextStyle(
+                            Text(
+                              "    ${state.weather.areaName}",
+                              style: const TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 25),
@@ -256,7 +259,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             style: const TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 10,
-                                                fontWeight: FontWeight.w700))
+                                                fontWeight: FontWeight.w700)),
                                       ],
                                     )
                                   ],
